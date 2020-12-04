@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $users = DB::table('users')->count();
+    return "Success ! Welcome to mySite";
 });
