@@ -1,0 +1,62 @@
+version: '3.8'
+services: 
+
+  #PHP Service
+    app:
+      build:
+        context: ./php
+        dockerfile: Dockerfile
+      image: buangam/php
+      container_name: app
+      restart: unless-stopped
+      tty: true
+      working_dir: /var/www/buangam_dev
+      volumes:
+        - ./:/var/www/buangam_dev
+      expose: 
+        - "9000"
+
+      networks: 
+        - web_network
+  
+
+  #Nginx Service
+    webserver:
+      image: nginx:alpine
+      container_name: webserver
+      restart: unless-stopped
+      tty: true
+      volumes: 
+        - ./:/var/www/buangam_dev
+
+        - ./nginx/conf/nginx.conf:/etc/nginx/conf/nginx.conf:ro
+        - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      
+      ports:
+        - "8080:80"
+
+      networks: 
+        - web_network
+
+
+  #MariaDB Service
+    db:
+      image: mariadb:10.5.8
+      container_name: db
+      restart: unless-stopped
+      tty: true
+      volumes:
+        - ./mariadb/initdb/:/docker-entrypoint-initdb.d
+        - ./mariadb/data/:/var/lib/mysql/
+      environment: 
+        MYSQL_ROOT_PASSWORD: secret
+      ports: 
+       - "3306:3306"
+      networks: 
+        - web_network
+
+
+
+networks:
+  web_network:
+    driver: bridge
