@@ -1,0 +1,46 @@
+#landing_page .ui {
+  width: 100%;
+  height: 100%;
+}
+
+#landing_page .ui .landing {
+  display: grid;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+}
+
+#landing_page .login-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(128, 128, 128, 0.192);
+  background: #ffffff;
+  box-shadow: 0 0 5px 1px rgba(128, 128, 128, 0.14);
+  border-radius: 20px;
+}
+
+#landing_page .login-container .left-side,
+#landing_page .login-container .right-side {
+  margin: 1px;
+  width: 250px;
+}
+
+#landing_page .login-container .landing-image-login {
+  max-width: 250px;
+  padding: 25px;
+}
+
+#landing_page .login-header {
+  margin-bottom: 25px;
+}
+
+#landing_page .right-side {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+#landing_page .right-side .form-login {
+  color: gray;
+}
+
