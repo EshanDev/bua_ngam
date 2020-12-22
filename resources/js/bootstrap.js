@@ -11,6 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('jquery-validation');
+    require('jquery-mask-plugin');
 } catch (e) {}
 
 /**

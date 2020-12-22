@@ -54,6 +54,24 @@ services:
        - "3306:3306"
       networks: 
         - web_network
+  
+
+  #PhpMyAdmin Service
+    pma:
+      image: phpmyadmin/phpmyadmin
+      container_name: phpmyadmin
+      restart: unless-stopped
+      environment: 
+        PMA_PORT: 3306
+        PMA_HOST: db
+        PMA_USER: root
+        PMA_PASSWORD: secret
+      ports: 
+        - "8004:80"
+      depends_on: 
+        - db
+      networks: 
+        - web_network
 
 
 
