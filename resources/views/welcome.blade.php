@@ -12,9 +12,6 @@
     <body id="landing_page">
         <div class="ui">
             <div class="landing">
-                <div class="login-header">
-                    <h1 class="text-center">ลงชื่อเข้าใช้งาน</h1>
-                </div>
                 <div class="login-container">
                     <div class="left-side">
                         <div class="landing-login">
